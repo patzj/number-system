@@ -1,6 +1,6 @@
 import converter from './lib/converter';
 
-export default class NumberSystem {
+class NumberSystem {
   constructor(fromBase = 10) {
     const SUPPORTED_BASES = [2, 8, 10, 16];
     const BASE = parseInt(fromBase, 10);
@@ -11,20 +11,24 @@ export default class NumberSystem {
     this.fromBase = BASE;
   }
 
-  bin(val) {
-    return converter(this.fromBase)(2)(val);
+  // Converts a value from a certain base to binary (base 2).
+  bin(value) {
+    return converter(this.fromBase)(2)(value);
   }
 
-  oct(val) {
-    return converter(this.fromBase)(8)(val);
+  // Converts a value from a certain base to octal (base 8).
+  oct(value) {
+    return converter(this.fromBase)(8)(value);
   }
 
-  dec(val) {
-    return converter(this.fromBase)(10)(val);
+  // Converts a value from a certain base to decimal (base 10).
+  dec(value) {
+    return converter(this.fromBase)(10)(value);
   }
 
-  hex(val) {
-    return converter(this.fromBase)(16)(val);
+  // Converts a value from a certain base to hexadecimal (base 16).
+  hex(value) {
+    return converter(this.fromBase)(16)(value);
   }
 
   set base(fromBase) {
@@ -35,3 +39,5 @@ export default class NumberSystem {
     return this.fromBase;
   }
 }
+
+module.exports = NumberSystem;

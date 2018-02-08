@@ -1,11 +1,7 @@
 const { expect } = require('chai');
-const NumberSystem = require('../dist').default;
+const NumberSystem = require('../dist');
 
-const BIN = 2;
-const OCT = 8;
-const DEC = 10;
-const HEX = 16;
-const SUPPORTED_BASES = [BIN, OCT, DEC, HEX];
+const SUPPORTED_BASES = [2, 8, 10, 16];
 const UNSUPPORTED_BASES = [0, 0.1, 99, 'x'];
 const SUPPORTED_CONVERSIONS = [
   {
@@ -30,7 +26,7 @@ describe('Number System Converter', () => {
   describe('Instance creation', () => {
     it('Creates a NumberSystem object with default base', () => {
       const ns = new NumberSystem();
-      expect(ns.base).to.equal(DEC);
+      expect(ns.base).to.equal(10);
     });
 
     SUPPORTED_BASES.forEach((base) => {

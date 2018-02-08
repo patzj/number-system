@@ -2,6 +2,7 @@ const NUM_TO_ALPHA_MAP = new Map([
   [15, 'f'], [14, 'e'], [13, 'd'], [12, 'c'], [11, 'b'], [10, 'a'],
 ]);
 
+// Adds prefix and replaces values greater than 9 with corresponding alphabet.
 const hexProcessor = seq => (
   [
     0, 'x', ...seq
@@ -9,27 +10,37 @@ const hexProcessor = seq => (
   ].join('')
 );
 
-const decimalTo = base => (val) => {
+// Converts decimal values its target base equivalent.
+const decimalTo = base => (value) => {
   const RESULT_SEQ = [];
   let returnValue = 0;
   let power = 0;
-  let divisor = 0;
-  let dividend = val;
+  let placeValue = 0;
+  let originalValue = value;
 
-  while (dividend >= base) {
-    dividend /= base;
+  /*
+  Finds the highest place value in the target base that is less than
+  or equal to the original value.
+  */
+  while (originalValue >= base) {
+    originalValue /= base;
     power += 1;
   }
 
-  divisor = base ** power;
-  dividend = val;
+  placeValue = base ** power;
+  originalValue = value;
 
-  while (divisor >= 1) {
-    RESULT_SEQ.push(Math.floor(dividend / divisor));
-    dividend %= divisor;
-    divisor /= base;
+  /*
+  Determines the digit that belongs to the current place value and appends to
+  the result sequence.
+  */
+  while (placeValue >= 1) {
+    RESULT_SEQ.push(Math.floor(originalValue / placeValue));
+    originalValue %= placeValue;
+    placeValue /= base;
   }
 
+  // Transforms the results to a single string of valid target base value.
   switch (base) {
     case 16:
       returnValue = hexProcessor(RESULT_SEQ);
@@ -44,7 +55,8 @@ const decimalTo = base => (val) => {
   return returnValue;
 };
 
-const isValid = base => (val) => {
+// Checks the validity of input with respect to the target base.
+const isValid = base => (value) => {
   let regexPattern = /()/;
 
   switch (base) {
@@ -59,19 +71,23 @@ const isValid = base => (val) => {
       regexPattern = /^[01]+$/i;
   }
 
-  return val.toString().search(regexPattern) > -1;
+  return value.toString().search(regexPattern) > -1;
 };
 
-const converter = fromBase => toBase => (val) => {
+/*
+  Wraps the decimalTo function converting the input value from a certain base
+  to a decimal value.
+*/
+const converter = fromBase => toBase => (value) => {
   const TO_BASE = parseInt(toBase, 10);
   let num = 0;
 
-  if (!isValid(fromBase)(val)) throw new Error('Invalid value.');
+  if (!isValid(fromBase)(value)) throw new Error('Invalid value.');
 
-  num = parseInt(val, fromBase);
+  num = parseInt(value, fromBase);
   if (Number.isNaN(num)) throw new Error('Invalid value.');
 
   return decimalTo(TO_BASE)(num);
 };
 
-export default converter;
+module.exports = converter;
