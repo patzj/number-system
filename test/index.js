@@ -1,5 +1,5 @@
 const { expect } = require('chai');
-const NumberSystem = require('../dist');
+const NumberSystem = require('..');
 
 const SUPPORTED_BASES = [2, 8, 10, 16];
 const UNSUPPORTED_BASES = [0, 0.1, 99, 'x'];
