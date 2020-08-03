@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
-    "build": "npx babel src --out-file index.js",
+    "build": "npx babel src --out-file index.js --presets=@babel/preset-env",
     "prepublish": "npm run build"
   },
   "repository": {
@@ -28,6 +28,7 @@
   "devDependencies": {
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
     "babel-preset-env": "^1.7.0",
     "chai": "^4.2.0",
     "eslint": "^4.19.1",
