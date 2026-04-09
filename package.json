@@ -1,6 +1,6 @@
 {
   "name": "number-system",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A number system conversion library. Supports binary, octal, decimal and hexadecimal.",
 
   "main": "dist/index.js",
