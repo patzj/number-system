@@ -2,29 +2,40 @@
   "name": "number-system",
   "version": "2.0.0",
   "description": "A number system conversion library. Supports binary, octal, decimal and hexadecimal.",
+
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+
+  "files": ["dist"],
+
   "scripts": {
     "test": "jest",
     "build": "tsc",
-    "prepublish": "npm run build"
+    "prepublishOnly": "npm run build"
   },
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/patzj/number-system.git"
   },
-  "keywords": [
-    "number",
-    "system",
-    "convert",
-    "converter",
-    "conversion"
-  ],
+
+  "keywords": ["number", "system", "convert", "converter", "conversion"],
+
   "author": "Pat Bautista <patzj006@gmail.com>",
   "license": "MIT",
+
   "bugs": {
     "url": "https://github.com/patzj/number-system/issues"
   },
   "homepage": "https://github.com/patzj/number-system#readme",
+
   "devDependencies": {
     "@types/jest": "^30.0.0",
     "@types/node": "^25.5.2",
