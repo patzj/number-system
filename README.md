@@ -1,4 +1,4 @@
-# number-system [![NPM version](https://badge.fury.io/js/number-system.svg)](https://npmjs.org/package/number-system) [![Build Status](https://github.com/patzj/number-system/workflows/Release%20CI/badge.svg)](https://github.com/patzj/number-system/actions?query=workflow%3A%22Release+CI%22)
+# number-system [![NPM version](https://badge.fury.io/js/number-system.svg)](https://npmjs.org/package/number-system) [![Build Status](https://github.com/patzj/number-system/workflows/Publish%20Package/badge.svg)](https://github.com/patzj/number-system/actions?query=workflow%3A%22Release+CI%22)
 
 > A number system conversion library. Supports binary, octal, decimal and hexadecimal.
 
