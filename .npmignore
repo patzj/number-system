@@ -2,3 +2,9 @@ src
 test
 .eslintrc.json
 .travis.yml
+tsconfig.json
+.github
+package-lock.json
+node_modules
+npm-debug.log
+.DS_Store

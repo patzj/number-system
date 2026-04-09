@@ -1,11 +1,11 @@
 {
   "name": "number-system",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "A number system conversion library. Supports binary, octal, decimal and hexadecimal.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "mocha",
-    "build": "npx babel src --out-file index.js --presets=@babel/preset-env",
+    "test": "jest",
+    "build": "tsc",
     "prepublish": "npm run build"
   },
   "repository": {
@@ -26,14 +26,10 @@
   },
   "homepage": "https://github.com/patzj/number-system#readme",
   "devDependencies": {
-    "@babel/cli": "^7.10.5",
-    "@babel/core": "^7.11.0",
-    "@babel/preset-env": "^7.11.0",
-    "babel-preset-env": "^1.7.0",
-    "chai": "^4.2.0",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.22.0",
-    "mocha": "^8.1.0"
+    "@types/jest": "^30.0.0",
+    "@types/node": "^25.5.2",
+    "jest": "^30.3.0",
+    "ts-jest": "^29.4.9",
+    "typescript": "^6.0.2"
   }
 }
