@@ -1,4 +1,5 @@
 import NumberSystem from '../src';
+import { describe, expect, it } from 'vitest';
 
 const SUPPORTED_BASES: number[] = [2, 8, 10, 16];
 const UNSUPPORTED_BASES: (number | string)[] = [0, 0.1, 99, 'x'];

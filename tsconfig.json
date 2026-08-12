@@ -11,7 +11,7 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "bundler",
-    "types": ["node", "jest"]
+    "types": ["node"]
   },
   "include": [
     "src/**/*.ts"
